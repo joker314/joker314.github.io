@@ -27,6 +27,11 @@
       a {
        color: blue; 
       }
+      a.plink {
+        color: gray;
+        text-align: right;
+        text-underline: dotted;
+      }
       code {
         background-color: black;
         color: white;
@@ -37,6 +42,7 @@
   </head>
   <body>
     <article class="post">
+      <a href="#p3" name="p3" class="plink">#3</a>
       <h1>XSS in Scratch</h1>
       <p>I found a stored Cross Site Scripting (XSS) vulnerability in Scratch's Cloud Log system. I initially found two points where text wasn't filtered; the column in the table where the value of the cloud variable is rendered, and the hover text which comes with it. However, the actual text in the table is shortened, with its middle replaced with an ellipsis. That makes code injection impractical; but perhaps not impossible if one combines multiple rows in the table.</p> 
       <p>However, the more viable injection point is the title attribute which defines the hover text for this data. The hover text has <em>all</em> of the cloud variable's value, and so if one sets the cloud variable to <code>"&gt;&lt;script&gt;alert(document.domain)&lt;/script&gt;</code>, then an alert box will show up, because the <code>title</code> attribute is closed by the <code>"</code>, and its tag is closed with the <code>&gt;</code>. Afterwards, the script tag can take over an account; but instead it just showed an annoying alert box, just to prove the vulnerability was there.</p>
@@ -44,6 +50,7 @@
       <footer>Feb 14 2018 <a href="https://github.com/joker314/joker314.github.io/issues/4" title="Post in a GitHub issue to leave your thoughts (opens in a new tab)" target="_blank">Leave a comment</a></footer>
     </article>
     <article class="post">
+      <a href="#p2" name="p2" class="plink">#2</a>
       <h1>CSRF in Scratch's Cloud Logs</h1>
       <p>Scratch keeps a log of modifications to cloud variables in a "Cloud Log" for each project. This is done, in part, to prevent users from changing cloud variables to inappropriate values. I found a Cross-Site request forgery (CSRF) vulnerability which allowed me to modify a cloud variable impersonating the currently logged in user inside the Cloud Logs, with the only information needed for the attack being the victim's username.</p>
       <p>The CSRF attack required the user to open an attacker's page and the attacker could set a cloud variable to any value.</p>
@@ -51,6 +58,7 @@
       <footer>Feb 13 2018 <a href="https://github.com/joker314/joker314.github.io/issues/2" title="Post in a GitHub issue to leave your thoughts (opens in a new tab)" target="_blank">Leave a comment</a></footer>
     </article>
     <article class="post">
+      <a href="#p1" name="p1" class="plink">#1</a>
       <h1>Welcome</h1>
       <p>Hi! This is a test post!</p>
       <footer>Feb 13 2018 <a href="https://github.com/joker314/joker314.github.io/issues/1" title="Post in a GitHub issue to leave your thoughts (opens in a new tab)" target="_blank">Leave a comment</a></footer>
