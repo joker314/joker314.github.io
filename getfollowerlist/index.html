@@ -45,10 +45,10 @@
     let i = 0;
     setInterval(function() {
       document.querySelector(".prank").innerText = [
-        "Getting a list of followers",
-        "Getting a list of followers.",
-        "Getting a list of followers..",
-        "Getting a list of followers..."
+        "Getting a list of unfollowers",
+        "Getting a list of unfollowers.",
+        "Getting a list of unfollowers..",
+        "Getting a list of unfollowers..."
       ][++i % 4]
     }, 500);
     function show() {
@@ -65,7 +65,7 @@
     <main>
       We all know how important it is to find out who's unfollowed you. This tool will list all of your past followers, by crawling all of the Scratch profiles and seeing their recent activity. <strong>The first step is to enter your username in the textbox below.</strong> <noscript>This site is free as in freedom, but does require a bit of JavaScript to find all the unfollowers, so please enable it or this tool won't work.</noscript> Thanks, and enjoy.
       
-      <center><input onkeyup="this.value.length ? show() : hide()"></center> <div class="prank">Getting a list of followers</div>
+      <center><input onkeyup="this.value.length ? show() : hide()"></center> <div class="prank">Getting a list of unfollowers</div>
     </main>
   </body>
 </html>
