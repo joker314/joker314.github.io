@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Get list of unfollowers</title>
+    <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      background-color: purple;
+      color: white;
+    }
+    main {
+      background-color: white;
+      font-size: 20px;
+      margin: 0;
+      padding: 20px;
+      font-style: italic;
+      font-family: "Comic Sans MS";
+    }
+    .prank {
+      margin: 40px;
+      display: none;
+    }
+    .prank.shown {
+      display: block;
+      background-color: orange;
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    strong {
+      font-size: 1.2em;
+    }
+    noscript {
+      font-size: 0.8em;
+    }
+    input {
+      height: 30px;
+      border-radius: 5px;
+    }
+    </style>
+    <script>
+    let i = 0;
+    setInterval(function() {
+      document.querySelector(".prank").innerText = [
+        "Getting a list of followers",
+        "Getting a list of followers.",
+        "Getting a list of followers..",
+        "Getting a list of followers..."
+      ][++i % 4]
+    }, 500);
+    function show() {
+      document.querySelector(".prank").className = "prank shown";
+    }
+    function hide() {
+      document.querySelector(".prank").className = "prank";
+    }
+    </script>
+  </head>
+  <body>
+    <h1>Get a list of users who unfollowed you</h1>
+    
+    <main>
+      We all know how important it is to find out who's unfollowed you. This tool will list all of your past followers, by crawling all of the Scratch profiles and seeing their recent activity. <strong>The first step is to enter your username in the textbox below.</strong> <noscript>This site is free as in freedom, but does require a bit of JavaScript to find all the unfollowers, so please enable it or this tool won't work.</noscript> Thanks, and enjoy.
+      
+      <center><input onchange="this.value.length ? show() : hide()"></center> <div class="prank">Getting a list of followers</div>
+    </main>
+  </body>
+</html>
