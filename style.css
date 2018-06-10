@@ -1,0 +1,27 @@
+      body, html {
+        background-color: black;
+        color: white;
+        font-family: monospace;
+        font-size: 25px;
+      }
+      h1, a {
+         text-transform: lowercase; 
+      }
+      h1 {
+        font-size: 30px; 
+        text-align: center;
+      }
+      a {
+        color: gold;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline; 
+      }
+      .org {
+        color: mediumpurple; 
+      }
+      .big {
+        text-align: center;
+        font-size: 120px;
+      }
