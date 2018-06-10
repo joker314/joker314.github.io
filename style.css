@@ -25,3 +25,9 @@
         text-align: center;
         font-size: 120px;
       }
+      code {
+        background-color: white;
+        color: black;
+        padding: 3px;
+        border-radius: 5px;
+      }
