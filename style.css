@@ -36,3 +36,7 @@
             color: hotpink;
             text-transform: uppercase;
       }
+      .home {
+            margin: auto 0;
+            margin-top: 10px;
+      }
