@@ -24,10 +24,18 @@
       .big {
         text-align: center;
         font-size: 120px;
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 5px;
       }
       code {
         background-color: white;
         color: black;
         padding: 3px;
         border-radius: 5px;
+      }
+      .notfixed {
+            /* straying away from the flag's colour scheme. this needs to be noticeable. */
+            color: hotpink;
+            text-transform: uppercase;
       }
