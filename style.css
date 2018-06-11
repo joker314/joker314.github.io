@@ -24,9 +24,6 @@
       .big {
         text-align: center;
         font-size: 120px;
-        border: 2px solid white;
-        padding: 5px;
-        border-radius: 5px;
       }
       code {
         background-color: white;
