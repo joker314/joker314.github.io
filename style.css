@@ -37,6 +37,7 @@
             text-transform: uppercase;
       }
       .home {
-            margin: auto 0;
+            display: block;
+            text-align: center;
             margin-top: 10px;
       }
