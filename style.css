@@ -41,3 +41,8 @@
             text-align: center;
             margin-top: 10px;
       }
+      article {
+            margin: 0 auto;
+            width: 90%;
+            font-family: "Trebuchet MS", Bookman, monospace;
+      }
