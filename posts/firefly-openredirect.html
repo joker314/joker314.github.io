@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>CSRF in Scratch | Write-up by jokebookservice1</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<h1>Open Redirect in Firefly [duplicate]</h1>
+      <article>
+
+<p>This is a vulnerability I found a while ago, in early October of 2017. I wasn't sure whether it was even worth disclosing, but I think it highlights the importance of updating software.</p>
+
+<p>So the organisation I wanted to talk about is Firefly. They're really awesome, and they produce software for schools to use. This software must be updated by each school to keep up-to-date. Now, just to describe the impact of password extraction in my particular school: single-sign-on was in use. That meant that the credentials used for this software were the same as those used for official school email, as well as the user's school account with all their files. If the account of a teacher was compromised, and if their email was therefore also compromised, then sensitive personal data of students could be extracted.</p>
+
+<p><strong>This vulnerability did not work on the latest version of Firefly's software. They had internally noticed the issue and corrected it themselves, speedily and responsibly</strong>. They did so awesomely!</p>
+
+<p>Ah, but my school hadn't quite got around to updating to the lastest version. Given that their software was paid, I had to rely on my school's version to do any research. So, below is what I found.</p>
+
+<p>First of all, let's take a look at how logging in works. You visit a URL, enter your username and password, and then hit "Log in". This is not at all dissimilar to what one might do normally.</p>
+
+<p>The URL was </p>
+
+<p><code>https://example.com/login/login.aspx</code></p>
+
+<p>Now, again, not dissimilar to a lot of log-in flows, there might be times when a user wants to visit a restricted page, but happens to be logged out. In these cases, there needs to be some kind of way to let the log-in page know where to go after logging in. This data can be stored in the URL as a paramater in the query string. So let's say we wanted to go to "/restrictedContent.html". Then, we'd be redirected to the log-in page at the below URL (note that <code>%2f</code> is the encoded version of <code>/</code>.</p>
+
+<p><code>https://example.com/login/login.aspx?prelogin=https%3a%2f%2fexample.com%2frestrictedContent.html%2f</code></p>
+
+<p>Now, in the mindset of a security researcher, one might wonder: "what happens if I change all the Things in a way that should Never happen?" In this case, what would happen if we sent a user to the below URL?</p>
+
+<p><code>https://example.com/login/login.aspx?prelogin=https%3a%2f%2f<strong>evil.com</strong>%2f</code></p>
+
+<p>Alas, the redirect doesn't work. So the next step is to consider how the validation is being done, and then how to get around it. When specifying the URL, you're allowed to do reletive stuff. For example, if you do <code>/file.html</code> when you're already on https://example.com, you'll be taken to https://example.com/file.html. This is really useful to avoid the need for writing out long URLs each time. But starting the URl with "/" made the validator think "This is an internal URL, so it's okay for the redirection." But it was wrong! Because when you specify <code>//evil.com</code>, and you're on an <code>https:</code> connection, you will be sent to <code>https://evil.com</code> (and you'll be sent to the <code>http:</code> version if you're currently on <code>http:</code>). The validator would allow these types of URLs, which were pointing to resources outside of the software, to be targets for redirection. We can now redirect to any site.
+
+<p>A user enters valid credentials, and is sent to a site that an attacker controls. If you're an attacker, this is perfect. A user will be thinking: "I just clicked on 'Log In' on a page I trust, therefore I must <em>still</em> be on a page I trust. I don't need to check the URL bar again to confirm this." So, as an attacker, we could fill the content of evil.com with -- for example -- an identical-looking log-in screen with innocent red text "Incorrect username or password". So a user re-enters their credentials, kindly, but this time on <em>our</em> site. That's not good.</p>
+
+<p>I will note that some vendors won't consider this a vulnerability. "It's phishing!"</p>
+
+<p>But one might as well play it safe. So I contact the vendor, responsibly.</p>
+
+<p>This is called an "open redirect". The vendor fixed this by
+
+<p><h2>Timeline</h2></p>
+<p>All times are in my local time. These are summaries, not actual messages.</p>
+
+<p>09<sup>th</sup> Oct 2017 (23:20): ME: Initial contact, request secure contact method (e.g. GPG key)</p>
+<p>09<sup>th</sup> Oct 2017 (23:30): FIREFLY: Initial response, very friendly, ten minutes later</p>
+<p>09<sup>th</sup> Oct 2017 (23:45): ME: Disclosure of details of vulnerability</p>
+<p>10<sup>th</sup> Oct 2017 (03:23): FIREFLY: The school hasn't updated, it's actually already fixed</p>
+<p>(snip)</p>
+<p>10<sup>th</sup> Nov 2017 (00:38): ME: Request for disclosure</p>
+<p>10<sup>th</sup> Nov 2017 (00:43): FIREFLY: Acknowledgement of request</p>
+<p>10<sup>th</sup> Nov 2017 (17:05): FIREFLY: Disclosure allowed</p>
+
+      <a href="../index.html" class="home">[[ Home ]]</a>
+      </article>
+</body>
+</html>
