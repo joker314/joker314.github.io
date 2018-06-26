@@ -11,10 +11,10 @@
 
 <p>So the organisation I wanted to talk about is Firefly. They're really awesome, and they produce software for schools to use. This software must be updated by each school to keep up-to-date. Now, just to describe the impact of password extraction in my particular school: single-sign-on was in use. That meant that the credentials used for this software were the same as those used for official school email, as well as the user's school account with all their files. If the account of a teacher was compromised, and if their email was therefore also compromised, then sensitive personal data of students could be extracted.</p>
 
-<p><strong>This vulnerability did not work on the latest version of Firefly's software. They had internally noticed the issue and corrected it themselves, speedily and responsibly</strong>. They did so awesomely!</p>
+<p><strong>This vulnerability did not work on the latest version of Firefly's software. They had noticed the issue themselves and had corrected it already, speedily and responsibly</strong>. They did so awesomely!</p>
 
 <p>Ah, but my school hadn't quite got around to updating to the lastest version. Given that their software was paid, I had to rely on my school's version to do any research. So, below is what I found.</p>
-
+<strong><em>To be super clear, Firefly fixed it without my help, and then I, later, noticed the vulnerability on an old version that my school was running.</em></strong>
 <p>First of all, let's take a look at how logging in works. You visit a URL, enter your username and password, and then hit "Log in". This is not at all dissimilar to what one might do normally.</p>
 
 <p>The URL was </p>
