@@ -1,48 +1,81 @@
-      body, html {
-        background-color: black;
-        color: white;
-        font-family: monospace;
-        font-size: 25px;
-      }
-      h1, a {
-         text-transform: lowercase; 
-      }
-      h1 {
-        font-size: 30px; 
-        text-align: center;
-      }
-      a {
-        color: gold;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline; 
-      }
-      .org {
-        color: mediumpurple; 
-      }
-      .big {
-        text-align: center;
-        font-size: 120px;
-      }
-      code {
-        background-color: white;
-        color: black;
-        padding: 3px;
-        border-radius: 5px;
-      }
-      .notfixed {
-            /* straying away from the flag's colour scheme. this needs to be noticeable. */
-            color: hotpink;
-            text-transform: uppercase;
-      }
-      .home {
-            display: block;
-            text-align: center;
-            margin-top: 10px;
-      }
-      article {
-            margin: 0 auto;
-            width: 90%;
-            font-family: "Trebuchet MS", Bookman, monospace;
-      }
+ html, body {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  scroll-behavior: smooth;
+}
+
+header {
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: white;
+  color: gray;
+}
+
+main {
+  height: 100%;
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: monospace;
+  padding: 20px;
+  font-size: 20px;
+}
+
+main p {
+  margin: 1px;
+}
+
+main nav {
+  margin: 1px;
+}
+
+main nav ul {
+  list-style-type: none;
+}
+
+main nav li {
+  margin: 5px;
+}
+
+main nav a {
+  display: block;
+  padding-left: 30px;
+}
+
+main a {
+  color: blue;
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+.adjective {
+  color: green;
+}
+
+.user {
+  color: red;
+}
+
+.button {
+  border: 1px solid blue;
+  padding: 10px;
+  color: blue;
+  text-decoration: none;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background-color: lightblue;
+}
