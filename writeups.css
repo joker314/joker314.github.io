@@ -1,0 +1,75 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+header {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Consolas, monospace;
+  color: gray;
+}
+
+.hack {
+  background-color: pink;
+  color: white;
+}
+
+main {
+  background-color: black;
+  color: white;
+  font-family: Consolas, monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: darkblue;
+  transition: color 0.5s;
+}
+a:hover {
+  color: blue;
+}
+a.button {
+  text-decoration: none;
+  color: blue;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid blue;
+  transition: background-color 1s;
+  padding: 10px;
+}
+a.button:hover {
+  background-color: lightblue;
+}
+.count {
+  font-size: 100px;
+  display: block;
+  border-radius: 10px;
+  text-align: center;
+  border: 4px solid white;
+}
+
+/**
+ * Report states
+ */
+
+.reso { color: green; }
+
+.dupe { color: purple; }
+
+.tria { color: red; } /* premature disclosure; protect yourself */
+
+.red, .reje {
+  color: red;
+}
